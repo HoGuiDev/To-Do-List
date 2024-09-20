@@ -1,4 +1,4 @@
-import styled from 'styled-components'
+import styled from "styled-components"
 
 export const Buttons = styled.div `
     width: 70px;
@@ -97,6 +97,47 @@ export const AdmButton = styled.button `
 
 export const List = styled.div `
     overflow-y: auto;
-
     height: 50dvh;
+
+    &::-webkit-scrollbar{
+        width: 10px;
+    }
+
+    &::-webkit-scrollbar-thumb{
+        background-color: rgba(168, 168, 250, 0.8);
+        border-radius: 5px;
+    }
+`
+
+export const AddButton = styled.button `
+    position: absolute;
+    top: 20px;
+    right: 20px;
+
+    border: none;
+    border-radius: 100%;
+
+    width: 50px;
+    height: 50px;
+
+    cursor: pointer;
+
+    font-size: x-large;
+
+    &:hover {
+        background-color: rgba(200, 200, 200);
+    }
+`
+
+export const Info = styled.button `
+    width: 50px;
+
+    border-radius: 50%;
+    border: none;
+
+    cursor: pointer;
+    
+    &:hover {
+        background: rgba(200, 200, 200);
+    }
 `

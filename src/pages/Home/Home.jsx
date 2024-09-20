@@ -1,5 +1,9 @@
 import React, { useState } from 'react'
-import { Concluir, Excluir, Conteiner, Title, Buttons, Tarefa, List, Adm, AdmInput, AdmButton } from './HomeStyle'
+import { Concluir, Excluir, Conteiner, 
+Title, Buttons, Tarefa, List, AdmInput, 
+AdmButton, AddButton, Info } from './HomeStyle'
+import Modal from '../../componentes/Modal'
+import InfoModal from '../../componentes/InfoModal'
 
 export default function Home() {
 
@@ -15,7 +19,7 @@ export default function Home() {
       estado: true
     }
   ])
-
+  
   function Add() {
     /* Adiciona uma nova tarefa a lista */
     let getName = document.querySelector("#NomeDaTarefa")
@@ -46,26 +50,50 @@ export default function Home() {
     setTarefas(resul)
   }
 
+  const [open, setOpen] = useState(false)
+
+  const [openInfo, setOpenInfo] = useState(false)
+  
+  function modal() { 
+    setOpen(true)
+  }
+
+  function fecharBt() {
+    setOpen(false)
+  }
+
+  function Info() {
+    setOpenInfo(true)
+  }
+  
   return (
-    <Conteiner>
-      <Title>Lista de Tarefas</Title>
-      <List>
-        {tarefas.map((item) =>
-          <Tarefa key={item.id}>
-            <p>{item.nome}</p>
-            <p>{item.estado === false ? "Em Adamento" : "Concluido"}</p>
-            <Buttons>
-              <Excluir onClick={() => excluir(item.id)}>&#10007;</Excluir>
-              <Concluir onClick={() => concluir(item.id)}>&#10003;</Concluir>
-            </Buttons>
-          </Tarefa>
-        )}
-      </List>
-      <Adm>
+    <div>
+      <AddButton onClick={modal}>+</AddButton>
+      <Conteiner>
+        <Title>Lista de Tarefas</Title>
+        <List>
+          {tarefas.map((item) =>
+            <Tarefa key={item.id}>
+              <p>{item.nome}</p>
+              <p>{item.estado === false ? "Em Adamento" : "Concluido"}</p>
+              
+              <Info onClick={Info}>i</Info>
+
+              <InfoModal isOpen={openInfo}>
+                <Buttons>
+                  <Excluir onClick={() => excluir(item.id)}>Excluir</Excluir>
+                  <Concluir onClick={() => concluir(item.id)}>Confirmar</Concluir>
+                </Buttons>
+              </InfoModal>
+            </Tarefa>
+          )}
+        </List>
+      </Conteiner>
+
+      <Modal isOpen={open} fechar={fecharBt}>
         <AdmInput name="Nome" type='text' placeholder='Nome da Tarefa' id='NomeDaTarefa'></AdmInput>
         <AdmButton onClick={Add}>Adicionar</AdmButton>
-      </Adm>
-    </Conteiner>
-
+      </Modal>
+    </div>
   )
 }
