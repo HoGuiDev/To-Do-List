@@ -1,11 +1,14 @@
+import { Back, Conteiner, Fechar } from './InfoModalStyled'
 
-
-export default function InfoModal({isOpen, children}) {
+export default function InfoModal({isOpen, children, InfoFechar}) {
     if(isOpen) {
         return (
-            <>
-            {children}
-            </>
+            <Back>
+                <Conteiner>
+                    <Fechar onClick={InfoFechar}>X</Fechar>
+                    {children}
+                </Conteiner>
+            </Back>
         )
     }
 }

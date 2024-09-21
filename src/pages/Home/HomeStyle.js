@@ -1,30 +1,32 @@
 import styled from "styled-components"
 
-export const Buttons = styled.div `
-    width: 70px;
+export const Buttons = styled.div`
+    position: absolute;
+    bottom: 10px;
+    left: 10px;
+    width: 160px;
+
     display: flex;
     justify-content: space-around;
 `
 
-export const Concluir = styled.button `
+export const Concluir = styled.button`
     background-color: green;
     border: green solid 1px;
     border-radius: 5px;
-    width: 30px;
-    height: 30px;
     cursor: pointer;
+    padding: 10px;
 `
 
-export const Excluir = styled.button `
+export const Excluir = styled.button`
     background-color: red;
     border: red solid 1px;
     border-radius: 5px;
-    width: 30px;
-    height: 30px;
     cursor: pointer;
+    padding: 10px;
 `
 
-export const Conteiner = styled.div `
+export const Conteiner = styled.div`
     display: flex;
     flex-direction: column;
     justify-content: space-around;
@@ -41,7 +43,7 @@ export const Conteiner = styled.div `
     box-shadow: 1px 1px 10px rgba(0, 0, 0, 0.3);
 `
 
-export const Title = styled.h1 `
+export const Title = styled.h1`
     color: black;
 
     margin: 20px 0px;
@@ -49,7 +51,7 @@ export const Title = styled.h1 `
     align-self: center;
 `
 
-export const Tarefa = styled.div `
+export const Tarefa = styled.div`
     display: flex;
     justify-content: space-between;
 
@@ -62,16 +64,7 @@ export const Tarefa = styled.div `
     margin: 2.5px 5px;
 `
 
-export const Adm = styled.div `
-    margin: 10px 10px;
-
-    display: flex;
-    justify-content: space-around;
-
-    justify-self: end;
-`
-
-export const AdmInput = styled.input `
+export const AdmInput = styled.input`
     width: 300px;
     height: 30px;
     border: none;
@@ -79,7 +72,11 @@ export const AdmInput = styled.input `
     box-shadow: 1px 1px 5px rgba(0, 0, 0, 0.3);
 `
 
-export const AdmButton = styled.button `
+export const AdmDesc = styled.textarea `
+    height: 40vh;
+`
+
+export const AdmButton = styled.button`
     width: 300px;
     height: 30px;
 
@@ -95,7 +92,7 @@ export const AdmButton = styled.button `
     }
 `
 
-export const List = styled.div `
+export const List = styled.div`
     overflow-y: auto;
     height: 50dvh;
 
@@ -109,7 +106,7 @@ export const List = styled.div `
     }
 `
 
-export const AddButton = styled.button `
+export const AddButton = styled.button`
     position: absolute;
     top: 20px;
     right: 20px;
@@ -129,7 +126,7 @@ export const AddButton = styled.button `
     }
 `
 
-export const Info = styled.button `
+export const BtInfo = styled.button`
     width: 50px;
 
     border-radius: 50%;
@@ -140,4 +137,23 @@ export const Info = styled.button `
     &:hover {
         background: rgba(200, 200, 200);
     }
+`
+
+export const Nome = styled.p`
+    color: black;
+
+    overflow-x: hidden;
+
+    align-self: center;
+
+    ${props => props.$lista = "width: 200px"}
+`
+
+export const Desc = styled.p`
+    width: 50vw;
+    height: 40vh;
+    
+    margin-top: 10px;
+
+    word-wrap: break-word;
 `
